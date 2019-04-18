@@ -19,7 +19,6 @@ describe('Card', () => {
     expect(count).not.toEqual(0)
   });
 
-
   it('contains a movie with a movie name', () => {
     const count = wrapper.find('[data-ref="movie-name"]').length;
     expect(count).not.toEqual(0)

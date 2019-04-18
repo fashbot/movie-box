@@ -1,19 +1,36 @@
+::placeholder{
+  color: white;
+  font-weight: bold;
+}
+
 .search{
   width: 40vh;
-  position:relative;
   height: 60px;
   padding-left: 20px;
   font-size: 16px;
+  font-weight: bold;
   border-style: solid;
   border-width: thick;
-  background-color: #46DAE4;
+  background-color: #e01e5a;
   color:white;
   border-color: yellow;
   outline: none;
 }
 
+.search-div{
+  display: flex;
+  align-items: stretch;
+}
 
-::placeholder{
+.search-icon{
   color: white;
-  font-weight: bold;
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  border-width: thick;
+  padding-bottom: 2px;
+  color:#e01e5a;
+  border-style: solid;
+  border-color: yellow;
+  background-color: yellow;
 }

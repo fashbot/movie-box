@@ -1,11 +1,11 @@
 import React, { Component }from 'react';
+import axios from 'axios';
 import Card from '../Card/Card.js';
 import SearchBar from '../SearchBar/SearchBar.js';
 import './Home.css';
-import axios from 'axios';
-
 
 const API = 'https://api.themoviedb.org/3/trending/all/day?api_key=88e0c08991bf9c0605abba9e68acdbcf';
+const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=88e0c08991bf9c0605abba9e68acdbcf&query='
 const API_IMAGE="https://image.tmdb.org/t/p/original/"
 class Home extends Component {
 
@@ -13,8 +13,14 @@ class Home extends Component {
     super(props);
     this.state = {
       trending: [],
-      isLoading: true
+      isLoading: true,
+      value: '',
+      searchResults: [],
+      isSearching: false
     }
+
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
   }
 
   componentDidMount(){
@@ -23,7 +29,8 @@ class Home extends Component {
 
   getTrendingTitles(){
     axios.get(API)
-      .then(response => this.setState({trending: response.data, isLoading: false})).then(this.showTitles());
+      .then(response => this.setState({trending: response.data, isLoading: false}))
+      .then(this.showTitles());
   }
 
   showTitles(){
@@ -40,21 +47,40 @@ class Home extends Component {
     return <div className="cards"> { movieList }</div>
   }
 
+  handleSearchChange(event){
+    this.setState({value: event.target.value, isSearching: true});
+    };
+
+  handleSearchSubmit(event){
+    event.preventDefault();
+    this.getSearchResults();
+  }
+
+  getSearchResults(){
+    const searchString = SEARCH_API + this.state.value;
+    axios.get(searchString)
+      .then(response => this.setState({searchResults: response.data, isSearching: false}))
+      .then(this.showResults());
+  }
+
+  showResults(){
+    const { isSearching, searchResults } = this.state;
+    if(!isSearching){
+      console.log(searchResults)
+    }
+  }
 
   render(){
     return(
-
       <div className = "home-div">
         <h1>STEPH'S MOVIE BOX </h1>
         {this.showTitles()}
-        <SearchBar/>
+        <form onSubmit={this.handleSearchSubmit}>
+          <SearchBar onChange={this.handleSearchChange} />
+        </form>
       </div>
     )
   }
-
-
-
-
 }
 
 export default Home;
