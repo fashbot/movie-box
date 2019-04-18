@@ -1,6 +1,19 @@
 .search{
   width: 40vh;
-  height: 40px;
+  position:relative;
+  height: 60px;
   padding-left: 20px;
-  font-size: 14px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: thick;
+  background-color: #46DAE4;
+  color:white;
+  border-color: yellow;
+  outline: none;
+}
+
+
+::placeholder{
+  color: white;
+  font-weight: bold;
 }
