@@ -73,7 +73,7 @@ class Home extends Component {
   render(){
     return(
       <div className = "home-div">
-        <h1>STEPH'S MOVIE BOX </h1>
+        <h1>MOVIE BOX </h1>
         {this.showTitles()}
         <form onSubmit={this.handleSearchSubmit}>
           <SearchBar onChange={this.handleSearchChange} iconClick={this.handleSearchSubmit}/>
