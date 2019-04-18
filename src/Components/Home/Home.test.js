@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import Home from '../Home/Home.js'
+import axios from 'axios';
+import Home from '../Home/Home.js';
 
 let wrapper;
 
@@ -13,5 +14,4 @@ describe('Home', () => {
   it('renders the home component', () => {
     expect(wrapper.length).toEqual(1)
   });
-
 });

@@ -29,15 +29,15 @@ class Home extends Component {
   showTitles(){
     const { trending, isLoading } = this.state;
     let result;
-    let movies = [];
+    let movieList = [];
     if (!isLoading){
       trending.results.map((movie, i) => {
         let image = (API_IMAGE + movie.poster_path);
         result = <Card title={movie.title} image={image} key={i}  />
-        movies.push(result);
+        movieList.push(result);
       })
     }
-    return <div className="cards"> { movies }</div>
+    return <div className="cards"> { movieList }</div>
   }
 
 
