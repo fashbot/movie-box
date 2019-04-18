@@ -76,7 +76,7 @@ class Home extends Component {
         <h1>STEPH'S MOVIE BOX </h1>
         {this.showTitles()}
         <form onSubmit={this.handleSearchSubmit}>
-          <SearchBar onChange={this.handleSearchChange} />
+          <SearchBar onChange={this.handleSearchChange} iconClick={this.handleSearchSubmit}/>
         </form>
       </div>
     )

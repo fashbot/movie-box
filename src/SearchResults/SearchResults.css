@@ -1,0 +1,8 @@
+.search-results-div{
+  background-color: #e01e5a;
+  display: flex;
+  justify-content: space-between;
+}
+.search-results-grid .grid{
+  width: 32%;
+}

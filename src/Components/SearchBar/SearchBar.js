@@ -12,7 +12,7 @@ import './SearchBar.css'
         className="search"
         onChange={props.onChange}/>
        <div>
-         <FaSearch className="search-icon"/>
+         <FaSearch className="search-icon" onClick={props.iconClick}/>
       </div>
     </div>
   );

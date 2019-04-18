@@ -4,8 +4,10 @@ import './SearchResults.css'
  const SearchResults = (props) => {
 
   return(
-    <div className="search-div">
-      {props.children}
+    <div className="search-results-div">
+      <div className="search-results-grid">
+        {props.children}
+      </div>
     </div>
   );
 }
